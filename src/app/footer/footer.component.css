@@ -1,0 +1,21 @@
+.footer{
+    background-color: #2780E3;
+    color: white;
+    padding: 20px;
+}
+small{
+    position: absolute;
+    margin-top: -20px;
+}
+
+p{
+    font-size: 35px;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    color: white;
+}
