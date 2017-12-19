@@ -1,0 +1,16 @@
+
+<div class="container">
+  <h1>Results</h1>
+  <div  *ngFor="let event of events" class="panel panel-default">
+    <div class="panel-body">
+      <div >
+        <h2>Event Name: {{event.name}}</h2>
+        <h2>Description: {{event.description}}</h2>
+        <h2>Price: ${{event.price}}</h2>
+        <h2>Date: {{event.event_date}}</h2>
+       <a (click)="addToCart(event.id)" ><button class="btn btn-lg btn-success">Book</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+

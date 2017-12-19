@@ -1,0 +1,25 @@
+
+<div class="container">
+  <h1 *ngIf="display_form">Confirm your Booking</h1>
+  <h1 *ngIf="display_message">Congratulations, Your booking has been confirmed. </h1>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div *ngFor="let event of events">
+        <h2>Event Name: {{event.name}}</h2>
+        <h2>Description: {{event.description}}</h2>
+        <h2>Price: ${{event.price}}</h2>
+        <h2>Date: {{event.event_date}}</h2>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="display_form" >
+    <h2 class="lead"> Enter your details below:</h2>
+    <input class="form-control input" type="text" #email placeholder="email" />
+    <input class="form-control input" type="text" #number_allowed placeholder="#person" />
+    <button (click)="sendMail(email.value, number_allowed.value)" class="btn btn-success btn-lg button">Buy</button>
+  </div>
+  <div *ngIf="display_message" >
+    <h1> You will receive confirmation mail shortly.<br> Thank you for you business.<br><br></h1>
+  </div>
+
+</div>
