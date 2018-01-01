@@ -1,5 +1,8 @@
 
-<div class="container">
+<div *ngIf="displayAll" class="container">
+  <label>Filter With Date</label>
+  <input (change)="convertDates($event)" type="date">
+  <!--<button class="btn btn-danger" (click)="">Filter</button>-->
   <h1>Results</h1>
   <div  *ngFor="let event of events" class="panel panel-default">
     <div class="panel-body">
@@ -12,5 +15,27 @@
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="displayFiltered" class="container">
+  <div *ngIf="dataAvailable">
+  <h1>Results</h1>
+    <button class="btn btn-danger pull-right" (click)="displayAll = true ; displayFiltered = false; dataAvailable = false"><i class="fa fa-times  fa-2x" aria-hidden="true"></i><span class="lead" style="margin-left: 10px;"></span></button>
+  <div  *ngFor="let event of eventsFilteredWithDate" class="panel panel-default">
+    <div class="panel-body">
+      <div >
+        <h2>Event Name: {{event.name}}</h2>
+        <h2>Description: {{event.description}}</h2>
+        <h2>Price: ${{event.price}}</h2>
+        <h2>Date: {{event.event_date}}</h2>
+        <a (click)="addToCart(event.id)" ><button class="btn btn-lg btn-success">Book</button></a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div *ngIf="!dataAvailable">
+    <h1>No Events available for this Date</h1>
+    <button class="btn btn-danger" (click)="displayAll = true ; displayFiltered = false; dataAvailable = false"><i class="fa fa-arrow-circle-left  fa-2x" aria-hidden="true"></i><span class="lead" style="margin-left: 10px;">Cool Take me Back</span></button>
+  </div>
+
 </div>
 

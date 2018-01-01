@@ -65,14 +65,15 @@ export class EventService {
       return promise;
   }
 
-  sendMail(email, person){
+  sendMail(email, person, plan){
 
       const headers = new Headers({ 'Content-Type': 'application/json' });
       const options = new RequestOptions({ headers: headers });
       const promise = new Promise((resolve, reject) => {
           this.http.post('http://127.0.0.1:8000/api/email',
               {"email": email,
-              "number": person},
+              "number": person,
+              "plan": plan},
               options).toPromise()
               .then(() => { // Success
                   // this.response = res.json().results;
